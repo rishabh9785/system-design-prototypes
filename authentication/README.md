@@ -22,7 +22,7 @@ cp .env.example .env
 python app.py
 ```
 
-Runs on `http://localhost:5000`. make this port to other than 5001, otherwise it raises a CORS issue.
+Runs on `http://localhost:5001`. make this port to other than 5000, otherwise it raises a CORS issue.
 
 ## 3. Frontend
 
@@ -42,23 +42,23 @@ Via curl:
 
 ```bash
 # signup
-curl -X POST http://localhost:5000/signup \
+curl -X POST http://localhost:5001/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"a@b.com","password":"secret123"}'
 
 # login -> copy the token from the response
-curl -X POST http://localhost:5000/login \
+curl -X POST http://localhost:5001/login \
   -H "Content-Type: application/json" \
   -d '{"email":"a@b.com","password":"secret123"}'
 
 # access protected route
-curl http://localhost:5000/me -H "Authorization: Bearer <token>"
+curl http://localhost:5001/me -H "Authorization: Bearer <token>"
 
 # missing token -> 401
-curl http://localhost:5000/me
+curl http://localhost:5001/me
 
 # invalid token -> 401
-curl http://localhost:5000/me -H "Authorization: Bearer garbage"
+curl http://localhost:5001/me -H "Authorization: Bearer garbage"
 
 # expired token -> wait past JWT_EXPIRY_MINUTES (30 min, or lower it in app.py to test faster) -> 401
 ```
