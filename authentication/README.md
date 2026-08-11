@@ -22,7 +22,7 @@ cp .env.example .env
 python app.py
 ```
 
-Runs on `http://localhost:5000`.
+Runs on `http://localhost:5000`. make this port to other than 5001, otherwise it raises a CORS issue.
 
 ## 3. Frontend
 
